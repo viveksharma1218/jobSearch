@@ -23,12 +23,8 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
+           
           },
           "configurations": {
             "production": {
@@ -50,6 +46,13 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "ssr": { 
+              "server": "src/main.server.ts",
+              "outputMode": "server",
+              "ssr": {
+                "entry": "src/server.ts"
+              }
             }
           },
           "defaultConfiguration": "production"
@@ -61,8 +64,10 @@
               "buildTarget": "ecomm:build:production"
             },
             "development": {
-              "buildTarget": "ecomm:build:development"
+              "buildTarget": "ecomm:build:development",
+              "proxyConfig":"src/proxy.conf.json"
             }
+            
           },
           "defaultConfiguration": "development"
         },
@@ -86,5 +91,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "2e349cd6-22be-4b1f-ba75-ff1f8028d28f"
   }
 }
