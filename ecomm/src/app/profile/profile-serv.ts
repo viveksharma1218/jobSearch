@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,delay } from 'rxjs';
+import { profileInt } from './profileInter';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ProfileServ {
   private jsonUrl = 'https://viveksharma1218.github.io/host_api/data.json';
 constructor(private http:HttpClient){}
- getData(): Observable<any> {
-    return this.http.get(this.jsonUrl);
+ getData(): Observable<profileInt[]> {
+    return this.http.get<profileInt[]>(this.jsonUrl).pipe(delay(1000));
   }
 }

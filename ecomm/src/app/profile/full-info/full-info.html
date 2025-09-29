@@ -1,0 +1,24 @@
+<div class="fullInfoContainer">
+    @if(profile ){
+    <div class="fullInfo">
+        <h3>{{ profile.title }}</h3>
+        <h4>{{ profile.company }}</h4> 
+        <p>PostedDate: {{ profile.postedDate }}</p>
+        <p>Type: {{ profile.type }}</p>
+        
+        <p>Salary: {{ profile.salary }}</p>
+        <p>Description: {{ profile.description }}</p>
+        <p>requirements: {{ profile.requirements }}</p>
+        <p>Benefits: {{ profile.benefits }}</p>
+        <p>Experience: {{ profile.experience }}</p>
+        <p>tags: {{ profile.tags }}</p>
+        <p>apply Link: {{ profile.applylink }}</p>
+
+    </div>
+    }
+    @else{
+        <h3>select a profile</h3>
+    }
+</div>
+
+

@@ -1,1 +1,24 @@
-<p>profile works!</p>
+<div class="profilecontainer">
+    <div class="profileListContainer">
+    <!-- <div>
+            <h3>
+                Profile:
+            </h3>
+            <h4>Company Name:</h4>
+            <p></p>
+            <p>Posted Date: </p>
+        </div> -->
+    @for(profile of (profileData$ | async); track profile.id;){
+        <div (click)="getProfile(profile)" class="companyCard">
+            <h4>Profile:{{profile.title}}</h4>
+            <h5>Company Name:{{profile.company}}</h5>
+            <p>{{profile.type}}</p>
+            <p>Posted Date: {{profile.postedDate}}</p>
+        </div>
+    }
+    </div>
+    <div class="profileFullInfo">
+        <app-full-info [profile]="selectedProfile"></app-full-info>
+    </div>
+</div>
+
