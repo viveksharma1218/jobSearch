@@ -10,51 +10,26 @@
         <form [formGroup]="FiltersGroup">
             <div class="title">
             <select class="formTitle" formControlName="selectedTitle">
-                <option selected>All profiles</option>
-                <option>Senior Software Engineer</option>
-                <option>Mid-Level Web Developer</option>
-                <option>Junior Frontend Developer</option>
-                <option>Backend API Developer</option>
-                <option>Full Stack Engineer</option>
-                <option>Cloud Solutions Architect</option>
-                <option>DevOps Specialist</option>
-                <option>Mobile Application Developer</option>
-                <option>UI Developer</option>
-                <option>UX Engineer</option>
-                <option>Technical Lead</option>
-                <option>Software Architect</option>
+                <option>AllProfile</option>
+                @for(title of allTitles; track title){
+                    <option>{{title}}</option>
+                }
             </select>
             </div>
             <div class="companies">
                 <select class="formCompanies" formControlName="selectedCompany">
-                    <option selected>All Companies</option>
-                    <option>TechCorp</option>
-                    <option>InnovateLabs</option>
-                    <option>DigitalCraft</option>
-                    <option>WebSolutions</option>
-                    <option>AppFactory</option>
-                    <option>CodeMasters</option>
-                    <option>DevHub</option>
-                    <option>SoftwareHouse</option>
-                    <option>StartUpZone</option>
-                    <option>FutureTech</option>
-                    <option>NextGen Systems</option>
+                    <option>AllCompany</option>
+                    @for(company of allCompanies; track company){
+                        <option>{{company}}</option>
+                    }
                 </select>
             </div>
             <div class="locations">
                 <select class="formLocation" formControlName="selectedLocation">
-                    <option selected>All Locations</option>
-                    <option>San Francisco</option>
-                    <option>New York</option>
-                    <option>Remote</option>
-                    <option>Austin</option>
-                    <option>Seattle</option>
-                    <option>Boston</option>
-                    <option>Chicago</option>
-                    <option>Los Angeles</option>
-                    <option>Portland</option>
-                    <option>Miami</option>
-                    <option>Washington</option>
+                    <option>AllLocation</option>
+                    @for(location of allLocations; track location){
+                        <option>{{location}}</option>
+                    }
                 </select>
             </div>
         </form>

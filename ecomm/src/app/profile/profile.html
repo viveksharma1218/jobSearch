@@ -1,3 +1,7 @@
+<!-- {{titleData$ | async}}
+{{companyData$ | async}}
+ {{locationData$ | async}} -->
+
 <div class="profilecontainer">
     <div class="profileListContainer">
     <!-- <div>
@@ -8,10 +12,12 @@
             <p></p>
             <p>Posted Date: </p>
         </div> -->
-    @for(profile of (profileData$ | async); track profile.id;){
+    @for(profile of (filterData | async); track profile.id; let i = $index;){
         <div (click)="getProfile(profile)" class="companyCard">
+            <p>{{i+1}}</p>
             <h4>Profile:{{profile.title}}</h4>
             <h5>Company Name:{{profile.company}}</h5>
+            <p>Location:{{profile.location}}</p>
             <p>{{profile.type}}</p>
             <p>Posted Date: {{profile.postedDate}}</p>
         </div>
