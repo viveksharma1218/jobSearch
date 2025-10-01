@@ -4,6 +4,7 @@
     padding-top: 10px;
     display: flex;
     column-gap: 30px;
+    background-color: transparent;
 }
 .profileListContainer{
     margin-top: 10px;
