@@ -1,23 +1,40 @@
 <div class="fullInfoContainer">
     @if(profile ){
     <div class="fullInfo">
-        <h3>{{ profile.title }}</h3>
-        <h4>{{ profile.company }}</h4> 
-        <p>PostedDate: {{ profile.postedDate }}</p>
-        <p>Type: {{ profile.type }}</p>
+        <h2>{{ profile.title }}</h2>
+        <h4>Company Name: {{ profile.company }}</h4> 
         <p>Location:{{profile.location}}</p>
+        <p>Type: {{ profile.type }}</p>
         <p>Salary: {{ profile.salary }}</p>
         <p>Description: {{ profile.description }}</p>
-        <p>requirements: {{ profile.requirements }}</p>
+        <p>Requirements: {{ profile.requirements }}</p>
         <p>Benefits: {{ profile.benefits }}</p>
+        <p>PostedDate: {{ profile.postedDate }}</p>
         <p>Experience: {{ profile.experience }}</p>
-        <p>tags: {{ profile.tags }}</p>
-        <p>apply Link: {{ profile.applylink }}</p>
+        <p>Tags: {{ profile.tags }}</p>
+        <button (click)="applyForm()">Apply</button>
 
     </div>
     }
     @else{
-        <h3>select a profile</h3>
+        <h2>Senior Frontend Developer</h2>
+        <h4>TechInnovate Inc</h4> 
+        <p>Type:Full-time</p>
+        <p>Location:San Francisco, CA</p>
+        <p>Salary:$120,000 - $150,000</p>
+        <p>Description: We're looking for an experienced Frontend Developer to join our
+             dynamic team. You'll be responsible for building responsive web applications using modern 
+             JavaScript frameworks.</p>
+        <p>Requirements:5+ years of frontend development experience, 
+        Expert knowledge of Angular and TypeScript, 
+            Experience with state management (NgRx), 
+            Proficient in HTML5, CSS3, SCSS", Knowledge of RESTful APIs and GraphQL</p>
+        <p>Benefits:Health insurance, Flexible work hours, Remote work options, Professional development budget,
+             401(k) matching </p>
+        <p>PostedDate:2024-01-15 </p>
+        <p>Experience:Senior </p>
+        <p>Tags:Angular, TypeScript, JavaScript, Frontend, SCSS </p>
+        <button (click)="applyForm()">Apply</button>
     }
 </div>
 

@@ -29,3 +29,15 @@ h5 ,h4, p{
 p{
     font-size:12px;
 }
+button{
+    font-size:10px;
+    width:50px;
+    height:15px;
+    border:none;
+    background-color: lightblue;
+    border-radius: 3px;
+}
+button:hover{
+    background-color: rgb(107, 176, 199);
+    cursor:pointer;
+}

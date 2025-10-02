@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import{HeaderfiltersServ} from '../services/headerfilters-serv'
 import { HeaderCategoryServ } from './header-category-serv';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })

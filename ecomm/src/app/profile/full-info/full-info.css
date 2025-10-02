@@ -3,3 +3,14 @@
     width:98%;
     height:98%;
 }
+button{
+    width:120px;
+    height:25px;
+    background-color: lightblue;
+    border:none;
+    border-radius: 6px;
+}
+button:hover{
+    background-color: rgb(107, 176, 199);
+    cursor:pointer;
+}

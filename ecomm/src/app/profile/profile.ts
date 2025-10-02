@@ -1,15 +1,16 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,inject,OnInit } from '@angular/core';
 import { ProfileServ } from './profile-serv';
-import{profileInt,Job} from './profileInter';
+import{profileInt} from './profileInter';
 import { FullInfo } from './full-info/full-info';
 import { AsyncPipe } from '@angular/common';
 import { combineLatest, map, Observable } from 'rxjs';
 import{HeaderfiltersServ} from '../services/headerfilters-serv';
-import { JsonPipe } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-profile',
-  imports: [FullInfo,AsyncPipe],
+  imports: [FullInfo, AsyncPipe],
   templateUrl: './profile.html',
   styleUrl: './profile.css'
 })
@@ -17,10 +18,12 @@ export class Profile implements OnInit{
   profileData$!:Observable<profileInt[]>;
   filterData!:Observable<profileInt[]>;
   selectedProfile!:profileInt;
+  // filter data received from header component
   titleData$!:Observable<string>;
   companyData$!:Observable<string>;
   locationData$!:Observable<string>;
   profilenewId:number= 0;
+  router = inject(Router);
   constructor(private ProfileServ:ProfileServ, private headerser:HeaderfiltersServ){
     //  this.ProfileServ.getData().subscribe(
     //     (data)=>{this.profileData$ = data;
@@ -62,6 +65,9 @@ export class Profile implements OnInit{
     })
    )
   
+  }
+  applyForm(){
+    this.router.navigate(['/apply'])
   }
  
 }

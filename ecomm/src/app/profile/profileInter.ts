@@ -13,10 +13,3 @@ export interface profileInt{
     tags:string[];
     applylink:string;
 }
-export interface Job {
-  id: number;
-  title: string;
-  company: string;
-  description: string; // The full information
-  salary: string;
-}

@@ -4,14 +4,6 @@
 
 <div class="profilecontainer">
     <div class="profileListContainer">
-    <!-- <div>
-            <h3>
-                Profile:
-            </h3>
-            <h4>Company Name:</h4>
-            <p></p>
-            <p>Posted Date: </p>
-        </div> -->
     @for(profile of (filterData | async); track profile.id; let i = $index;){
         <div (click)="getProfile(profile)" class="companyCard">
             <p>{{i+1}}</p>
@@ -20,6 +12,7 @@
             <p>Location:{{profile.location}}</p>
             <p>{{profile.type}}</p>
             <p>Posted Date: {{profile.postedDate}}</p>
+            <button (click)="applyForm()">Apply</button>
         </div>
     }
     </div>
