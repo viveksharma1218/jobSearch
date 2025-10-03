@@ -1,6 +1,5 @@
-
-form{{jobApplicationForm.pristine|json}}
-{{jobApplicationForm.value | json}}
+<strong>formValues</strong>{{jobApplicationForm.value | json}}
+<strong>formValid:</strong>{{jobApplicationForm.valid|json}}
 
 <div class="job-application-container">
   <div class="header">
@@ -8,7 +7,7 @@ form{{jobApplicationForm.pristine|json}}
     <p>Please fill out the form below to apply for the position</p>
   </div>
 
-<form [formGroup]="jobApplicationForm">
+<form [formGroup]="jobApplicationForm" (ngSubmit)="applyJob()">
 
     <div>
           <mat-form-field class="example-full-width">
@@ -31,12 +30,12 @@ form{{jobApplicationForm.pristine|json}}
     <div>
         <mat-form-field class="example-full-width">
             <mat-label for="mobileNumber">mobileNumber</mat-label>
-        <input type="text" matInput id="mobileNumber" formControlName="mobileNumber" >
+        <input type="number" matInput id="mobileNumber" formControlName="mobileNumber" >
         </mat-form-field>
         
     </div>
     <div class="addressGroup" formGroupName="address" class="dropdown">
-        <mat-accordion>
+<mat-accordion>
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title> Address Dropdown </mat-panel-title>
@@ -75,7 +74,7 @@ form{{jobApplicationForm.pristine|json}}
         <div>
             <mat-form-field class="example-full-width">
                    <mat-label for="zipCode">zipCode</mat-label>
-            <input type="text" matInput id="zipCode" formControlName="zipCode">
+            <input type="number" matInput id="zipCode" formControlName="zipCode">
             </mat-form-field>
          
         </div>
@@ -89,7 +88,7 @@ form{{jobApplicationForm.pristine|json}}
         <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
         <mat-panel-title> Job Prefence dropdown </mat-panel-title>
-        <mat-panel-description> fil out your job prefence details here. </mat-panel-description>
+        <mat-panel-description> fill out your job prefence details here. </mat-panel-description>
         </mat-expansion-panel-header>  
         <div class="jobPreferenceGroup" >
         <div>
@@ -123,7 +122,7 @@ form{{jobApplicationForm.pristine|json}}
         <div>
             <mat-form-field class="example-full-width">
                 <mat-label for=" startDate"> startDate</mat-label>
-                <input type="text" matInput id=" startDate" formControlName="startDate">
+                <input type="date" matInput id=" startDate" formControlName="startDate">
             </mat-form-field>
          
         </div>
@@ -151,7 +150,7 @@ form{{jobApplicationForm.pristine|json}}
         <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
         <mat-panel-title> Education Dropdown </mat-panel-title>
-        <mat-panel-description> fil out your Education details here. </mat-panel-description>
+        <mat-panel-description> fill out your Education details here. </mat-panel-description>
         </mat-expansion-panel-header>
 
         <div>
@@ -204,8 +203,8 @@ form{{jobApplicationForm.pristine|json}}
         <mat-accordion>
         <mat-expansion-panel hideToggle>
         <mat-expansion-panel-header>
-        <mat-panel-title> Education Dropdown </mat-panel-title>
-        <mat-panel-description> fil out your Education details here. </mat-panel-description>
+        <mat-panel-title> Skills Dropdown </mat-panel-title>
+        <mat-panel-description> fill out your Skills details here. </mat-panel-description>
         </mat-expansion-panel-header>
         <div>
             <mat-form-field class="example-full-width">
@@ -245,19 +244,15 @@ form{{jobApplicationForm.pristine|json}}
                </mat-expansion-panel>
     </mat-accordion>
     </div>
- <div>
-    <mat-form-field class="example-full-width">
-        <mat-label for="documents">documents</mat-label>
-        <input type="text" matInput id="documents" formControlName="documents">
-    </mat-form-field>
-        
+    <div class="uploadDiv">
+        <label for="documents" class="uploadLabel">Upload your Resume Here</label>
+         <input type="file" id="documents" formControlName="documents">
     </div>
-    
-     <!-- 
-    
-     
-    
-    
-    -->
-
+   <div class="checkbox">
+    <input type="checkbox"formControlName="tnc">
+    <label>Check If All details are correct and Submit the form</label>
+   </div>
+    <div class="submitButtonDiv">
+        <button type="submit" [disabled]="jobApplicationForm.invalid" class="submitButton">Submit</button>
+    </div>
 </form>
