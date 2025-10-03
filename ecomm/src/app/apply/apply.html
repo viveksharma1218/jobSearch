@@ -1,1 +1,263 @@
-<p>apply works!</p>
+
+form{{jobApplicationForm.pristine|json}}
+{{jobApplicationForm.value | json}}
+
+<div class="job-application-container">
+  <div class="header">
+    <h1>Job Application Form</h1>
+    <p>Please fill out the form below to apply for the position</p>
+  </div>
+
+<form [formGroup]="jobApplicationForm">
+
+    <div>
+          <mat-form-field class="example-full-width">
+            <mat-label for="firstName">First Name</mat-label>
+            <input type="text" matInput id="firstName" formControlName="firstName" >
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label for="lastName">lastName</mat-label>
+            <input type="text" matInput id="lastName" formControlName="lastName" >
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label for="email">email</mat-label>
+            <input type="text" matInput ="email" formControlName="email" >
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label for="mobileNumber">mobileNumber</mat-label>
+        <input type="text" matInput id="mobileNumber" formControlName="mobileNumber" >
+        </mat-form-field>
+        
+    </div>
+    <div class="addressGroup" formGroupName="address" class="dropdown">
+        <mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Address Dropdown </mat-panel-title>
+      <mat-panel-description> fill address details here </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="addressLine1">Address Line1</mat-label>
+            <input type="text" matInput id="addressLine1" formControlName="addressLine1">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                  <mat-label for="addressLine2">Address Line2</mat-label>
+            <input type="text" matInput id="addressLine2" formControlName="addressLine2">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                 <mat-label for="city">city</mat-label>
+                <input type="text" matInput id="city" formControlName="city">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="state">State</mat-label>
+            <input type="text" matInput id="state" formControlName="state">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="country">Country</mat-label>
+            <input type="text" matInput id="country" formControlName="country">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                   <mat-label for="zipCode">zipCode</mat-label>
+            <input type="text" matInput id="zipCode" formControlName="zipCode">
+            </mat-form-field>
+         
+        </div>
+  </mat-expansion-panel>
+</mat-accordion>
+     </div>  
+     
+     
+<div formGroupName="jobPreference" class="dropdown">
+     <mat-accordion>
+        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+        <mat-panel-title> Job Prefence dropdown </mat-panel-title>
+        <mat-panel-description> fil out your job prefence details here. </mat-panel-description>
+        </mat-expansion-panel-header>  
+        <div class="jobPreferenceGroup" >
+        <div>
+            <mat-form-field class="example-full-width">
+                   <mat-label for="desiredPosition">desiredPosition</mat-label>
+            <input type="text" matInput id="desiredPosition" formControlName="desiredPosition">
+            </mat-form-field>
+         
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="experience">experience</mat-label>
+                <input type="text" matInput id="experience" formControlName="experience">
+            </mat-form-field>
+            
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                    <mat-label for="employementType">employementType</mat-label>
+                    <input type="text" matInput id="employementType" formControlName="employementType">
+            </mat-form-field>
+       
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="salaryExpectation">salaryExpectation</mat-label>
+                <input type="text" matInput id="salaryExpectation" formControlName="salaryExpectation">
+            </mat-form-field>
+            
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for=" startDate"> startDate</mat-label>
+                <input type="text" matInput id=" startDate" formControlName="startDate">
+            </mat-form-field>
+         
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                   <mat-label for="relocation">relocation</mat-label>
+                    <input type="text" matInput id="relocation" formControlName="relocation">
+            </mat-form-field>
+         
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="relocation">remoteWork</mat-label>
+                <input type="text" matInput id="remoteWork" formControlName="remoteWork">
+            </mat-form-field>
+  
+        </div>
+
+        </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<div class="educationGroup" formGroupName="education" class="dropdown">
+        <mat-accordion>
+        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+        <mat-panel-title> Education Dropdown </mat-panel-title>
+        <mat-panel-description> fil out your Education details here. </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="highestDegree">highestDegree</mat-label>
+            <input type="text" matInput id="highestDegree" formControlName="highestDegree">
+            </mat-form-field>
+            
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                  <mat-label for="institution">institution</mat-label>
+            <input type="text" matInput id="institution" formControlName="institution">
+            </mat-form-field>
+          
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="fieldOfStudy">fieldOfStudy</mat-label>
+            <input type="text" matInput id="fieldOfStudy" formControlName="fieldOfStudy">
+            </mat-form-field>
+            
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                 <mat-label for="graduationYear">graduationYear</mat-label>
+                <input type="text" matInput id="graduationYear" formControlName="graduationYear">
+            </mat-form-field>
+           
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="gpa">gpa</mat-label>
+                <input type="text" matInput id="gpa" formControlName="gpa">
+            </mat-form-field>
+       
+        </div>
+         </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+     
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label for="workExperience">workExperience</mat-label>
+            <input type="text" matInput id="workExperience" formcontrolname="workExperience">
+        </mat-form-field>
+  </div>
+
+<div class="skillsGroup" formGroupName="skills" class="dropdown">
+        <mat-accordion>
+        <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+        <mat-panel-title> Education Dropdown </mat-panel-title>
+        <mat-panel-description> fil out your Education details here. </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <mat-form-field class="example-full-width">
+                   <mat-label for="technicalSkills">technicalSkills</mat-label>
+            <input type="text" matInput id="technicalSkills" formControlName="technicalSkills">
+            </mat-form-field>
+         
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                    <mat-label for="programmingLanguage">programmingLanguage</mat-label>
+                    <input type="text" matInput id="programmingLanguage" formControlName="programmingLanguage">
+            </mat-form-field>
+        
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="frameworks">frameworks</mat-label>
+                <input type="text" matInput id="frameworks" formControlName="frameworks">
+            </mat-form-field>
+          
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label for="tools">tools</mat-label>
+                <input type="tools" matInput id="tools" formControlName="tools">
+            </mat-form-field>
+          
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                    <mat-label for="certification">certification</mat-label>
+            <input type="text" matInput id="certification" formcontrolname="certification">
+            </mat-form-field>
+        
+        </div>
+               </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+ <div>
+    <mat-form-field class="example-full-width">
+        <mat-label for="documents">documents</mat-label>
+        <input type="text" matInput id="documents" formControlName="documents">
+    </mat-form-field>
+        
+    </div>
+    
+     <!-- 
+    
+     
+    
+    
+    -->
+
+</form>
