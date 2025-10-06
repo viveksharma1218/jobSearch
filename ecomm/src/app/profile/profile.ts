@@ -6,11 +6,12 @@ import { AsyncPipe } from '@angular/common';
 import { combineLatest, map, Observable } from 'rxjs';
 import{HeaderfiltersServ} from '../services/headerfilters-serv';
 import { Router } from '@angular/router';
+import { Header } from '../header/header';
 
 
 @Component({
   selector: 'app-profile',
-  imports: [FullInfo, AsyncPipe],
+  imports: [FullInfo, AsyncPipe,Header],
   templateUrl: './profile.html',
   styleUrl: './profile.css'
 })

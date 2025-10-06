@@ -1,7 +1,7 @@
 <!-- {{titleData$ | async}}
 {{companyData$ | async}}
  {{locationData$ | async}} -->
-
+<app-header></app-header>
 <div class="profilecontainer">
     <div class="profileListContainer">
     @for(profile of (filterData | async); track profile.id; let i = $index;){

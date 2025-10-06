@@ -1,3 +1,20 @@
+.job-application-container{
+  padding-left:200px;
+  padding-right:400px;
+}
+.logo ,.logoTitle{
+    margin:0;
+    padding:0;
+    font-size: 25px;
+    font-weight: 700;
+    color: brown;
+    line-height: 1;
+    text-decoration: none;
+}
+p{
+  margin:0;
+  font-size:12px;
+}
 .example-form {
   min-width: 150px;
   max-width: 500px;
@@ -28,6 +45,9 @@
 .submitButton:hover{
   background-color: rgb(121, 200, 226);
   cursor:pointer;
+}
+.submitButton:active{
+  background-color: rgb(103, 167, 188);
 }
 .submitButton:disabled{
   background-color: gray;

@@ -1,36 +1,57 @@
-<strong>formValues</strong>{{jobApplicationForm.value | json}}
-<strong>formValid:</strong>{{jobApplicationForm.valid|json}}
-
+<!-- <strong>formValues</strong>{{jobApplicationForm.value | json}}
+<strong>formValid:</strong>{{jobApplicationForm.valid|json}} -->
+<div class="logo">
+        <a routerLink="/profile" class="logoTitle">SearchJobs</a>
+    </div>
 <div class="job-application-container">
   <div class="header">
     <h1>Job Application Form</h1>
     <p>Please fill out the form below to apply for the position</p>
+    <p>Boxes with * can not be empty</p>
   </div>
 
-<form [formGroup]="jobApplicationForm" (ngSubmit)="applyJob()">
+<form [formGroup]="jobApplicationForm" (ngSubmit)="applyJob()" class="jobApplicationForm">
 
     <div>
           <mat-form-field class="example-full-width">
             <mat-label for="firstName">First Name</mat-label>
             <input type="text" matInput id="firstName" formControlName="firstName" >
+            @if (jobApplicationForm.get('firstName')?.hasError('required')) {
+            <mat-error>First Name is required</mat-error>
+            }
         </mat-form-field>
     </div>
     <div>
         <mat-form-field class="example-full-width">
             <mat-label for="lastName">lastName</mat-label>
             <input type="text" matInput id="lastName" formControlName="lastName" >
+             @if (jobApplicationForm.get('lastName')?.hasError('maxlength')) {
+            <mat-error>Maximum 5 Characters</mat-error>
+            }
         </mat-form-field>
     </div>
     <div>
         <mat-form-field class="example-full-width">
             <mat-label for="email">email</mat-label>
             <input type="text" matInput ="email" formControlName="email" >
+            @if(jobApplicationForm.get('email')?.hasError('required')){
+               <mat-error>email is required</mat-error> 
+            }
+            @if(jobApplicationForm.get('email')?.hasError('email')){
+                <mat-error>incorrect email address</mat-error>
+            }
         </mat-form-field>
     </div>
     <div>
         <mat-form-field class="example-full-width">
             <mat-label for="mobileNumber">mobileNumber</mat-label>
         <input type="number" matInput id="mobileNumber" formControlName="mobileNumber" >
+        @if(jobApplicationForm.get('mobileNumber')?.hasError('required')){
+            <mat-error>mobile number is required</mat-error>
+        }
+        @if(jobApplicationForm.get('mobileNumber')?.hasError('pattern') ){
+            <mat-error>Mobile number must be exactly 10 digits.</mat-error>
+        }
         </mat-form-field>
         
     </div>
@@ -45,6 +66,9 @@
             <mat-form-field class="example-full-width">
                 <mat-label for="addressLine1">Address Line1</mat-label>
             <input type="text" matInput id="addressLine1" formControlName="addressLine1">
+            @if(jobApplicationForm.get('address.addressLine1')?.hasError('required')){
+                <mat-error>Address Line1 is required</mat-error>
+            }
             </mat-form-field>
         </div>
         <div>
@@ -75,6 +99,9 @@
             <mat-form-field class="example-full-width">
                    <mat-label for="zipCode">zipCode</mat-label>
             <input type="number" matInput id="zipCode" formControlName="zipCode">
+            @if(jobApplicationForm.get('address.zipCode')?.hasError('max')){
+                <mat-error>Maximum 6 digits are allowed</mat-error>
+            }
             </mat-form-field>
          
         </div>
@@ -254,5 +281,9 @@
    </div>
     <div class="submitButtonDiv">
         <button type="submit" [disabled]="jobApplicationForm.invalid" class="submitButton">Submit</button>
+        <button type="button" class="submitButton" (click)="resetForm()">Reset</button>
     </div>
+
 </form>
+
+
